@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rekap AI Bot</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+            background-color: #f8f9fa;
+        }
+
+        /* Terms Modal Styling */
+        .terms-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s, opacity 0.3s ease-in-out;
+        }
+
+        .terms-modal.active {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .terms-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .agree-button {
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .agree-button:hover {
+            background-color: #45a049;
+        }
+
+        /* Bot UI Styling */
+        .onboarding-widget {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
+            max-width: 600px;
+        }
+
+        /* Center the buttons */
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        /* Button Styling */
+        .mic-button {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: #3a444e;
+            color: #fff;
+            font-size: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.24);
+            box-shadow: 0px 0px 15px rgb(127, 140, 247);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .mic-button:hover {
+            background-color: #4a5564;
+            box-shadow: 0px 0px 20px rgba(127, 140, 247, 0.8);
+        }
+
+        .button-content h5 {
+            margin: 0;
+        }
+
+        /* Status Text Styling */
+        .status-text {
+            font-size: 12px;
+            color: #666;
+            margin: 5px 0;
+        }
+    </style>
+  <script type="module" crossorigin src="/assets/index-_jp83Zmd.js"></script>
+</head>
+<body>
+    <!-- Terms and Conditions Modal -->
+    <div id="termsModal" class="terms-modal">
+        <div class="terms-content">
+            <h2>Terms and Conditions</h2>
+            <p>By clicking "Agree," and each time I interact with this AI agent, I consent to REKAP collecting and using my voice and data derived from it...</p>
+            <button id="agreeButton" class="agree-button">Agree</button>
+        </div>
+    </div>
+
+    <!-- Bot Interface -->
+    <div class="onboarding-widget">
+        <h4>Meet Rekap!</h4>
+        <p>Choose an AI agent to start a conversation!</p>
+
+        <div class="button-container">
+            <button id="micButton1" class="mic-button"><h5>Agent 1</h5></button>
+            <button id="micButton2" class="mic-button"><h5>Agent 2</h5></button>
+            <button id="micButton3" class="mic-button"><h5>Agent 3</h5></button>
+            <button id="micButton4" class="mic-button"><h5>Agent 4</h5></button>
+            <button id="micButton5" class="mic-button"><h5>Agent 5</h5></button>
+        </div>
+
+        <div style="margin-top: 20px;">
+            <p class="status-text">Status: <span id="connectionStatus">Disconnected</span></p>
+            <p class="status-text">Agent: <span id="agentStatus">Idle</span></p>
+        </div>
+    </div>
+
+</body>
+</html>
+
